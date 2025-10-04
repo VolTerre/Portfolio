@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calliste Ladouas – Projects</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f9fafb;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    main {
+      width: 90%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    a.project {
+      display: block;
+      text-decoration: none;
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      color: #222;
+    }
+
+    a.project:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    a.project h2 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    a.project p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 5px 0 0;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 30px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Calliste Ladouas</h1>
+    <p class="subtitle">Academic & Professional Projects</p>
+  </header>
+
+  <main>
+    <a href="Rapport modal graphes du web.pdf#toolbar=0" class="project" target="_blank">
+      <h2>Internship Report – April 2026</h2>
+      <p>Research and analysis on environmental technologies.</p>
+    </a>
+
+    <a href="ECO08_rapport final.pdf#toolbar=0" class="project" target="_blank">
+      <h2>Research Thesis – 2025</h2>
+      <p>Study on sustainable energy systems and policy evaluation.</p>
+    </a>
+
+  <footer>
+    © 2025 Calliste Ladouas · All rights reserved
+  </footer>
+</body>
+</html>
