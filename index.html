@@ -39,7 +39,6 @@
       margin-bottom: 60px;
     }
 
-    /* Ligne verticale centrale */
     main::before {
       content: '';
       position: absolute;
@@ -67,14 +66,13 @@
       text-align: left;
     }
 
-    /* Cercle sur la ligne */
     .timeline-item::before {
       content: '';
       position: absolute;
       top: 30px;
       width: 16px;
       height: 16px;
-      background: #014421
+      background: #014421;
       border-radius: 50%;
       border: 3px solid white;
       z-index: 1;
@@ -97,7 +95,9 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
-      max-width: 90%;            
+      max-width: 90%;          
+      margin: 0 auto;          
+      box-sizing: border-box;           
     }
 
 
@@ -156,6 +156,7 @@
     <h1>Calliste Ladouas</h1>
     <p class="subtitle">Academic & professional projects</p>
   </header>
+  <main>
     <div class="timeline-item left">
       <a href="RAPPORT ENS Calliste Ladouas.pdf#toolbar=0" target="_blank">
         <div class="date">06/2022-05/2023</div>
@@ -164,7 +165,7 @@
       </a>
     </div>
   
-    <main>
+    
     <div class="timeline-item right">
       <a href="ECO08_rapport final.pdf#toolbar=0" target="_blank">
         <div class="date">09/2024-05/2025</div>
@@ -173,7 +174,7 @@
       </a>
     </div>
 
-  <main>
+  
     <div class="timeline-item left">
       <a href="Rapport modal graphes du web.pdf#toolbar=0" target="_blank">
         <div class="date">03/2025-05/2025</div>
@@ -181,7 +182,8 @@
         <p>Researched the 15th French legislature by clustering deputies along political lines and analyzing the links between their speeches and legislative actions on environmental issues in the National Assembly</p>
       </a>
     </div>
-
+    
+  <main>
   <footer>
     © <span id="year"></span> Calliste Ladouas · All rights reserved
   </footer>
