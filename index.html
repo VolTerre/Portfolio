@@ -136,40 +136,58 @@
     }
 
 @media screen and (max-width: 768px) {
+  /* On garde la ligne à gauche */
   main::before {
-    left: 10px; 
+    left: 25px;
+    transform: none;
   }
 
+  /* Chaque boîte occupe toute la largeur */
   .timeline-item {
     width: 100%;
-    padding-left: 50px;
+    padding-left: 60px;
     padding-right: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
-  
+
+  /* Supprimer l’alternance gauche/droite */
   .timeline-item.left,
   .timeline-item.right {
     left: 0;
     text-align: left;
   }
 
+  /* Logos alignés à gauche, taille réduite */
   .timeline-logo {
+    position: absolute;
     left: 0;
-    right: auto;
-    margin: 0;
-    top: 0;
+    top: 25px;
     transform: none;
-    width: 50px; 
-    height: 50px;
+    width: 55px;
+    height: 55px;
+    margin: 0;
   }
 
+  /* Les points (cercles) alignés à gauche aussi */
+  .timeline-item::before {
+    left: 25px;
+    right: auto;
+  }
+
+  /* Les boîtes un peu plus simples visuellement */
   .timeline-item a {
+    display: block;
     padding: 20px;
     max-width: 100%;
   }
 
-  .timeline-item::before {
-    left: 0;
+  /* Les titres et dates restent lisibles */
+  .timeline-item h2 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-item .date {
+    font-size: 0.95rem;
   }
 }
 
