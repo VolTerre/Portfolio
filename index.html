@@ -152,22 +152,23 @@
       }
     }
 
-    .timeline-logo {
-  width: 40px;            
-  height: 40px;
+.timeline-logo {
+  width: 70px;              
+  height: 70px;
   position: absolute;
-  top: 30px;              
+  top: 50%;                 
+  transform: translateY(-50%); 
   z-index: 2;
 }
-
+    
 .timeline-item.left .timeline-logo {
-  right: 100%;           
-  margin-right: 10px;     
+  left: 100%;              
+  margin-left: 25px;
 }
-
+    
 .timeline-item.right .timeline-logo {
-  left: 100%;             
-  margin-left: 10px;
+  right: 100%;              
+  margin-right: 25px;
 }
     
   </style>
@@ -199,7 +200,7 @@
 
   
 <div class="timeline-item left">
-  <img src="images/assemble-nationale.png" alt="National assembly" class="timeline-logo">
+  <img src="images/assemblee-nationale.png" alt="National assembly" class="timeline-logo">
   <a href="pdf/WebProject.pdf#toolbar=0" target="_blank">
     <div class="date">03/2025-05/2025</div>
         <h2>Web graphs project</h2>
