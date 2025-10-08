@@ -32,6 +32,13 @@
       margin-bottom: 40px;
     }
 
+    .subtitle-fr {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: -10px;  
+  font-style: italic;
+}
+
     main {
       position: relative;
       width: 90%;
@@ -136,13 +143,11 @@
     }
 
 @media screen and (max-width: 768px) {
-  /* On garde la ligne à gauche */
   main::before {
     left: 25px;
     transform: none;
   }
 
-  /* Chaque boîte occupe toute la largeur */
   .timeline-item {
     width: 100%;
     padding-left: 60px;
@@ -150,14 +155,12 @@
     margin-bottom: 60px;
   }
 
-  /* Supprimer l’alternance gauche/droite */
   .timeline-item.left,
   .timeline-item.right {
     left: 0;
     text-align: left;
   }
 
-  /* Logos alignés à gauche, taille réduite */
   .timeline-logo {
     position: absolute;
     left: 0;
@@ -168,20 +171,17 @@
     margin: 0;
   }
 
-  /* Les points (cercles) alignés à gauche aussi */
   .timeline-item::before {
     left: 25px;
     right: auto;
   }
 
-  /* Les boîtes un peu plus simples visuellement */
   .timeline-item a {
     display: block;
     padding: 20px;
     max-width: 100%;
   }
 
-  /* Les titres et dates restent lisibles */
   .timeline-item h2 {
     font-size: 1.1rem;
   }
@@ -216,12 +216,13 @@
 <body>
   <header>
     <h1>Calliste Ladouas</h1>
-    <p class="subtitle">Academic & professional projects</p>
+    <p class="subtitle">Academic projects </p>
+    <p class="subtitle-fr"><em>Documents in French</em></p>
   </header>
   <main>
     <div class="timeline-item left">
       <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo">
-      <a href="pdf/RAPPORT.pdf#toolbar=0" target="_blank">
+      <a href="pdf/RAPPORT ENS Calliste Ladouas.pdf#toolbar=0" target="_blank">
     <div class="date">06/2022-05/2023</div>
         <h2>Group project for water depollution</h2>
         <p>Conducted a research into activated carbon chemistry in order to depollute water efficiently and to simulate an industrial scale-up. Discussed my research with water industry professionals</p>
@@ -241,7 +242,7 @@
   
 <div class="timeline-item left">
   <img src="images/assemblee-nationale.png" alt="National assembly" class="timeline-logo">
-  <a href="pdf/WebProject.pdf#toolbar=0" target="_blank">
+  <a href="pdf/Rapport modal graphes du web.pdf#toolbar=0" target="_blank">
     <div class="date">03/2025-05/2025</div>
         <h2>Web graphs project</h2>
         <p>Researched the 15th French legislature by clustering deputies along political lines and analyzing the links between their speeches and legislative actions on environmental issues in the National Assembly</p>
