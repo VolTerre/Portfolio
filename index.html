@@ -56,15 +56,17 @@
       box-sizing: border-box;
     }
 
-    .timeline-item.left {
-      left: 0;
-      text-align: right;
-    }
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  transform: translateX(-40%);
+}
 
-    .timeline-item.right {
-      left: 50%;
-      text-align: left;
-    }
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  transform: translateX(3%);
+}
 
     .timeline-item::before {
       content: '';
@@ -79,11 +81,11 @@
     }
 
     .timeline-item.left::before {
-      right: -8px;
+      right: -6mm;
     }
 
     .timeline-item.right::before {
-      left: -8px;
+      left: -6mm;
     }
 
     .timeline-item a {
@@ -183,7 +185,7 @@
       </a>
     </div>
     
-  <main>
+  </main>
   <footer>
     © <span id="year"></span> Calliste Ladouas · All rights reserved
   </footer>
