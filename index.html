@@ -35,7 +35,7 @@
     p.subtitle { color: #555; font-size: 1.1rem; margin-bottom: 40px; }
     .subtitle-fr { color: #666; font-size: 0.9rem; margin-top: -4px; font-style: italic; }
 
-    main { position: relative; width: 90%; max-width: 600px; margin-bottom: 60px; }
+    main { position: relative; width: 95%; max-width: 900px; margin-bottom: 60px; }
     main::before {
       content: '';
       position: absolute;
@@ -46,42 +46,43 @@
       background: #cbd5e0;
     }
 
-    .timeline-item { position: relative; width: 80%; padding: 20px 40px; box-sizing: border-box; }
-    .timeline-item.left { left: 0; text-align: right; transform: translateX(-40%); }
-    .timeline-item.right { left: 50%; text-align: left; transform: translateX(3%); }
+    .timeline-item { position: relative; width: 50%; padding: 20px 0; box-sizing: border-box; min-height: 150px; display: flex; align-items: center; }
+    .timeline-item.left { left: 0; justify-content: flex-end; padding-right: 150px; }
+    .timeline-item.right { left: 50%; justify-content: flex-start; padding-left: 150px; }
 
     .timeline-item::before {
       content: '';
       position: absolute;
-      top: 30px;
+      top: 50%;
       width: 16px;
       height: 16px;
       background: #f59e0b;
       border-radius: 50%;
       border: 3px solid white;
-      z-index: 1;
+      z-index: 3;
+      transform: translateY(-50%);
     }
-    .timeline-item.left::before { right: -6mm; }
-    .timeline-item.right::before { left: -6mm; }
+    .timeline-item.left::before { right: -11px; }
+    .timeline-item.right::before { left: -11px; }
 
     .timeline-item a {
       text-decoration: none;
       color: #222;
-      display: inline-block;
       background: white;
-      padding: 25px 30px;       
+      padding: 20px 25px;       
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s;
-      max-width: 90%;          
-      margin: 0 auto;          
-      box-sizing: border-box;           
+      width: 100%;
+      max-width: 350px;
+      box-sizing: border-box;
+      z-index: 1;
     }
 
     .timeline-item a:hover { transform: translateY(-3px); }
     .timeline-item h2 { margin: 5px 0; font-size: 1rem; color: #fb923c; }
     .timeline-item .date { font-weight: bold; color: #555; font-size: 0.95rem; }
-    .timeline-item p { margin: 0; font-size: 0.95rem; color: #555; }
+    .timeline-item p { margin: 0; font-size: 0.85rem; color: #555; line-height: 1.4; }
     
     .pdf-badge {
       display: inline-block;
@@ -106,16 +107,16 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
+      pointer-events: none;
     }
 
-    footer { margin-top: auto; padding: 30px; color: #777; font-size: 0.9rem; text-align: center; }
+    footer { margin-top: auto; padding: 30px; color: #777; font-size: 0.9rem; text-align: center; width: 100%; }
 
     @media screen and (max-width: 768px) {
-      main::before { left: 25px; transform: none; }
-      .timeline-item { width: 100%; padding-left: 60px; padding-right: 20px; margin-bottom: 60px; }
-      .timeline-item.left, .timeline-item.right { left: 0; text-align: left; transform: none; }
-      .timeline-logo { position: relative; left: 0; transform: none; width: 80px !important; height: 80px !important; margin-bottom: 10px; }
-      .timeline-item::before { left: 25px; }
+      main::before { left: 30px; transform: none; }
+      .timeline-item { width: 100%; left: 0 !important; padding-left: 70px !important; padding-right: 20px !important; justify-content: flex-start !important; transform: none !important; margin-bottom: 30px; }
+      .timeline-item::before { left: 19px !important; }
+      .timeline-logo { position: relative; left: 0; transform: none; width: 80px !important; height: 80px !important; margin-bottom: 10px; display: block; }
       .timeline-item a { max-width: 100%; }
       .top-controls { top: 10px; right: 10px; gap: 8px; }
     }
@@ -142,7 +143,7 @@
 
 <main>
   <div class="timeline-item right">
-    <img src="images/loup brebis.png" alt="Wolves project" class="timeline-logo" style="width: 250px; height: 250px;">
+    <img src="images/loup brebis.png" alt="Wolves project" class="timeline-logo" style="width: 230px; height: 230px;">
     <a href="Rapport loups DELATOUR DROCHON LADOUAS.pdf#toolbar=0" target="_blank">
       <span class="pdf-badge">📄 PDF</span>
       <div class="date">09/2025-12/2025</div>
@@ -172,7 +173,7 @@
   </div>
 
   <div class="timeline-item left">
-    <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo" style="width: 150px; height: 150px;">
+    <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo" style="width: 140px; height: 140px;">
     <a href="RAPPORT ENS Calliste Ladouas.pdf#toolbar=0" target="_blank">
       <span class="pdf-badge">📄 PDF</span>
       <div class="date">06/2022-05/2023</div>
@@ -190,7 +191,7 @@
   window.onscroll = function() {
     let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
+    let scrolled = (height > 0) ? (winScroll / height) * 100 : 0;
     let bar = document.getElementById("progress-bar");
     if (bar) bar.style.width = scrolled + "%";
   };
