@@ -100,13 +100,21 @@
     .top-controls { position: fixed; top: 20px; right: 20px; display: flex; align-items: center; gap: 15px; z-index: 1000; }
     #theme-toggle { cursor: pointer; padding: 5px 12px; border-radius: 20px; border: 1px solid #ccc; background: white; font-size: 0.8rem; }
     
-    .timeline-logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
+.timeline-logo.left {
+  position: absolute;
+  top: 50%;
+  left: -25px; 
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.timeline-logo.right {
+  position: absolute;
+  top: 50%;
+  right: -25px; 
+  transform: translateY(-50%);
+  z-index: 2;
+}
 
     footer { margin-top: auto; padding: 30px; color: #777; font-size: 0.9rem; text-align: center; }
 
@@ -142,7 +150,7 @@
 
 <main>
   <div class="timeline-item right">
-    <img src="images/loup brebis.png" alt="Wolves project" class="timeline-logo" style="width: 250px; height: 250px; top: 50%; transform: translateY(-50%);">
+    <img src="images/loup brebis.png" alt="Wolves project" class="timeline-logo.left" style="width: 250px; height: 250px;">
     <a href="Rapport loups DELATOUR DROCHON LADOUAS.pdf#toolbar=0" target="_blank">
       <span class="pdf-badge">📄 PDF</span>
       <div class="date">09/2025-12/2025</div>
@@ -152,7 +160,7 @@
   </div>
 
   <div class="timeline-item left">
-    <img src="images/assemblee-nationale.png" alt="National assembly" class="timeline-logo" style="width: 100px; height: 100px; top: 50%; transform: translateY(-50%);">
+    <img src="images/assemblee-nationale.png" alt="National assembly" class="timeline-logo.right" style="width: 100px; height: 100px;">
     <a href="Rapport modal graphes du web.pdf#toolbar=0" target="_blank">
       <span class="pdf-badge">📄 PDF</span>
       <div class="date">03/2025-05/2025</div>
@@ -162,7 +170,7 @@
   </div>
 
   <div class="timeline-item right">
-    <img src="images/en-pensant.png" alt="Thinking" class="timeline-logo" style="width: 100px; height: 100px; top: 50%; transform: translateY(-50%);">
+    <img src="images/en-pensant.png" alt="Thinking" class="timeline-logo.left" style="width: 100px; height: 100px;">
     <a href="ECO08_rapport final.pdf#toolbar=0" target="_blank">
       <span class="pdf-badge">📄 PDF</span>
       <div class="date">09/2024-05/2025</div>
@@ -172,7 +180,7 @@
   </div>
 
   <div class="timeline-item left">
-    <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo" style="width: 150px; height: 150px; top: 50%; transform: translateY(-50%);">
+    <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo.right" style="width: 150px; height: 150px;">
     <a href="RAPPORT ENS Calliste Ladouas.pdf#toolbar=0" target="_blank">
       <span class="pdf-badge">📄 PDF</span>
       <div class="date">06/2022-05/2023</div>
