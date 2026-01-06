@@ -14,38 +14,28 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
     }
 
-    header {
-      text-align: center;
-      margin: 40px 0;
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #f4f4f4;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+    body.dark-mode .timeline-item a {
+      background-color: #2d2d2d;
+      color: #f4f4f4;
     }
 
-    p.subtitle {
-      color: #555;
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-    }
+    body.dark-mode .date { color: #60a5fa; }
+    body.dark-mode .subtitle, body.dark-mode .subtitle-fr { color: #ccc; }
 
-    .subtitle-fr {
-  color: #666;
-  font-size: 0.9rem;
-  margin-top: -4px;  
-  font-style: italic;
-}
+    header { text-align: center; margin: 40px 0; }
+    h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    p.subtitle { color: #555; font-size: 1.1rem; margin-bottom: 40px; }
+    .subtitle-fr { color: #666; font-size: 0.9rem; margin-top: -4px; font-style: italic; }
 
-    main {
-      position: relative;
-      width: 90%;
-      max-width: 600px;
-      margin-bottom: 60px;
-    }
-
+    main { position: relative; width: 90%; max-width: 600px; margin-bottom: 60px; }
     main::before {
       content: '';
       position: absolute;
@@ -56,24 +46,9 @@
       background: #cbd5e0;
     }
 
-    .timeline-item {
-      position: relative;
-      width: 80%;
-      padding: 20px 40px;
-      box-sizing: border-box;
-    }
-
-.timeline-item.left {
-  left: 0;
-  text-align: right;
-  transform: translateX(-40%);
-}
-
-.timeline-item.right {
-  left: 50%;
-  text-align: left;
-  transform: translateX(3%);
-}
+    .timeline-item { position: relative; width: 80%; padding: 20px 40px; box-sizing: border-box; }
+    .timeline-item.left { left: 0; text-align: right; transform: translateX(-40%); }
+    .timeline-item.right { left: 50%; text-align: left; transform: translateX(3%); }
 
     .timeline-item::before {
       content: '';
@@ -86,14 +61,8 @@
       border: 3px solid white;
       z-index: 1;
     }
-
-    .timeline-item.left::before {
-      right: -6mm;
-    }
-
-    .timeline-item.right::before {
-      left: -6mm;
-    }
+    .timeline-item.left::before { right: -6mm; }
+    .timeline-item.right::before { left: -6mm; }
 
     .timeline-item a {
       text-decoration: none;
@@ -103,210 +72,138 @@
       padding: 25px 30px;       
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s;
       max-width: 90%;          
       margin: 0 auto;          
       box-sizing: border-box;           
     }
 
-
-    .timeline-item a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .timeline-item h2 {
-      margin: 0 0 5px 0;
-      font-size: 1rem;
-      color: #fb923c;
-    }
-
-    .timeline-item .date {
+    .timeline-item a:hover { transform: translateY(-3px); }
+    .timeline-item h2 { margin: 5px 0; font-size: 1rem; color: #fb923c; }
+    .timeline-item .date { font-weight: bold; color: #555; font-size: 0.95rem; }
+    .timeline-item p { margin: 0; font-size: 0.95rem; color: #555; }
+    
+    .pdf-badge {
+      display: inline-block;
+      background: #f1f1f1;
+      color: #333;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
       font-weight: bold;
-      color: #555;
-      font-size: 0.95rem;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
-    .timeline-item p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #555;
+    #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(200, 200, 200, 0.2); z-index: 10000; }
+    #progress-bar { height: 100%; background: #0077b5; width: 0%; transition: width 0.1s ease; }
+
+    .top-controls { position: fixed; top: 20px; right: 20px; display: flex; align-items: center; gap: 15px; z-index: 1000; }
+    #theme-toggle { cursor: pointer; padding: 5px 12px; border-radius: 20px; border: 1px solid #ccc; background: white; font-size: 0.8rem; }
+    
+    .timeline-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
     }
 
-    footer {
-      margin-top: auto;
-      padding: 30px;
-      color: #777;
-      font-size: 0.9rem;
-      text-align: center;
+    footer { margin-top: auto; padding: 30px; color: #777; font-size: 0.9rem; text-align: center; }
+
+    @media screen and (max-width: 768px) {
+      main::before { left: 25px; transform: none; }
+      .timeline-item { width: 100%; padding-left: 60px; padding-right: 20px; margin-bottom: 60px; }
+      .timeline-item.left, .timeline-item.right { left: 0; text-align: left; transform: none; }
+      .timeline-logo { position: relative; left: 0; transform: none; width: 80px !important; height: 80px !important; margin-bottom: 10px; }
+      .timeline-item::before { left: 25px; }
+      .timeline-item a { max-width: 100%; }
+      .top-controls { top: 10px; right: 10px; gap: 8px; }
     }
-
-@media screen and (max-width: 768px) {
-  main::before {
-    left: 25px;
-    transform: none;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 60px;
-    padding-right: 20px;
-    margin-bottom: 60px;
-  }
-
-  .timeline-item.left,
-  .timeline-item.right {
-    left: 0;
-    text-align: left;
-  }
-
-  .timeline-logo {
-    position: absolute;
-    left: 0;
-    top: 25px;
-    transform: none;
-    width: 55px;
-    height: 55px;
-    margin: 0;
-  }
-
-  .timeline-item::before {
-    left: 25px;
-    right: auto;
-  }
-
-  .timeline-item a {
-    display: block;
-    padding: 20px;
-    max-width: 100%;
-  }
-
-  .timeline-item h2 {
-    font-size: 1.1rem;
-  }
-
-  .timeline-item .date {
-    font-size: 0.95rem;
-  }
-}
-
-
-.timeline-logo {
-  width: 110px;              
-  height: 110px;
-  position: absolute;
-  top: 50%;                 
-  transform: translateY(-50%); 
-  z-index: 2;
-}
-    
-.timeline-item.left .timeline-logo {
-  left: 100%;              
-  margin-left: 80px;
-}
-    
-.timeline-item.right .timeline-logo {
-  right: 100%;              
-  margin-right: 80px;
-}
-
-
-#progress-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 6px; 
-  background: rgba(200, 200, 200, 0.2); 
-  z-index: 10000; 
-}
-
-#progress-bar {
-  height: 100%;
-  background: #0077b5; 
-  width: 0%;
-  transition: width 0.1s ease; 
-}
-
-window.onscroll = function() {
-  let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let scrolled = (winScroll / height) * 100;
-  let bar = document.getElementById("progress-bar");
-  if (bar) {
-    bar.style.width = scrolled + "%";
-  }
-};
-    
   </style>
 </head>
 <body>
+
 <div id="progress-container">
   <div id="progress-bar"></div>
 </div>
-  
-  <header>
-    <h1>Calliste Ladouas</h1>
-    <div class="top-controls">
-  <a href="https://www.linkedin.com/in/calliste-ladouas/" target="_blank" class="linkedin-link">
+
+<div class="top-controls">
+  <button id="theme-toggle">🌓 Mode</button>
+  <a href="https://www.linkedin.com/in/calliste-ladouas/" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="25">
   </a>
 </div>
-    <p class="subtitle">Academic projects </p>
-    <p class="subtitle-fr"><em>Click on the boxes to view the documents in French</em></p>
-  </header>
-  <main>
-    <div class="timeline-item right">
-      <img src="images/loup brebis.png" alt="Wolves project" class="timeline-logo" style="width: 250px; height: 250px;top: 50%; transform: translateY(-50%);">
-      <a href="Rapport loups DELATOUR DROCHON LADOUAS.pdf#toolbar=0" target="_blank">
-        <div class="date">09/2025-12/2025</div>
-        <h2>The wolf in France: a fair coexistence</h2>
-        <p>This policy paper aims to advise on public wolf management policies in order to address the livestock attacks. Based on a literature review and interviews with numerous stakeholders, from shepherds and ministries to environmental NGOs and researchers, it presents a nuanced scenario rooted in field realities.</p>
-        <span class="pdf-badge">📄 PDF</span>
-      </a>
-    
-    </div>
+
+<header>
+  <h1>Calliste Ladouas</h1>
+  <p class="subtitle">Academic projects </p>
+  <p class="subtitle-fr"><em>Click on the boxes to view the documents in French</em></p>
+</header>
+
+<main>
+  <div class="timeline-item right">
+    <img src="images/loup brebis.png" alt="Wolves project" class="timeline-logo" style="width: 250px; height: 250px;">
+    <a href="Rapport loups DELATOUR DROCHON LADOUAS.pdf#toolbar=0" target="_blank">
+      <span class="pdf-badge">📄 PDF</span>
+      <div class="date">09/2025-12/2025</div>
+      <h2>The wolf in France: a fair coexistence</h2>
+      <p>This policy paper aims to advise on public wolf management policies to address livestock attacks. Based on a literature review and stakeholder interviews, it presents a nuanced scenario.</p>
+    </a>
+  </div>
+
   <div class="timeline-item left">
-  <img src="images/assemblee-nationale.png" alt="National assembly" class="timeline-logo" style="width: 100px; height: 100px;top: 50%; transform: translateY(-50%);">
-  <a href="Rapport modal graphes du web.pdf#toolbar=0" target="_blank">
-    <div class="date">03/2025-05/2025</div>
-        <h2>Web graphs project</h2>
-        <p>Researched the 15th French legislature by clustering deputies along political lines and analyzing the links between their speeches and legislative actions on environmental issues in the National Assembly</p>
-        <span class="pdf-badge">📄 PDF</span> 
-  </a>
-    </div>
-    
-    <div class="timeline-item right">
-      <img src="images/en-pensant.png" alt="Thinking" class="timeline-logo" style="width: 100px; height: 100px;top: 50%; transform: translateY(-50%);">
-      <a href="ECO08_rapport final.pdf#toolbar=0" target="_blank">
-        <div class="date">09/2024-05/2025</div>
-        <h2>Collaborative scientific project in economics</h2>
-        <p>Developed an economics protocol to analyze normative evaluation of climate policies among the population</p>
-        <span class="pdf-badge">📄 PDF</span>
-      </a>
-    </div>
+    <img src="images/assemblee-nationale.png" alt="National assembly" class="timeline-logo" style="width: 100px; height: 100px;">
+    <a href="Rapport modal graphes du web.pdf#toolbar=0" target="_blank">
+      <span class="pdf-badge">📄 PDF</span>
+      <div class="date">03/2025-05/2025</div>
+      <h2>Web graphs project</h2>
+      <p>Researched the 15th French legislature by clustering deputies along political lines and analyzing legislative actions on environmental issues.</p>
+    </a>
+  </div>
 
+  <div class="timeline-item right">
+    <img src="images/en-pensant.png" alt="Thinking" class="timeline-logo" style="width: 100px; height: 100px;">
+    <a href="ECO08_rapport final.pdf#toolbar=0" target="_blank">
+      <span class="pdf-badge">📄 PDF</span>
+      <div class="date">09/2024-05/2025</div>
+      <h2>Collaborative scientific project in economics</h2>
+      <p>Developed an economics protocol to analyze normative evaluation of climate policies among the population.</p>
+    </a>
+  </div>
 
+  <div class="timeline-item left">
+    <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo" style="width: 150px; height: 150px;">
+    <a href="RAPPORT ENS Calliste Ladouas.pdf#toolbar=0" target="_blank">
+      <span class="pdf-badge">📄 PDF</span>
+      <div class="date">06/2022-05/2023</div>
+      <h2>Group project for water depollution</h2>
+      <p>Conducted research into activated carbon chemistry to simulate an industrial scale-up.</p>
+    </a>
+  </div>
+</main>
 
-    <div class="timeline-item left">
-      <img src="images/becher-dessai.png" alt="Chemistry" class="timeline-logo" style="width: 150px; height: 150px;top: 50%; transform: translateY(-50%);">
-      <a href="RAPPORT ENS Calliste Ladouas.pdf#toolbar=0" target="_blank">
-    <div class="date">06/2022-05/2023</div>
-        <h2>Group project for water depollution</h2>
-        <p>Conducted a research into activated carbon chemistry in order to depollute water efficiently and to simulate an industrial scale-up. Discussed my research with water industry professionals</p>
-        <span class="pdf-badge">📄 PDF</span>
-      </a>
-    </div>
-    
-  </main>
-  <footer>
-    © <span id="year"></span> Calliste Ladouas · All rights reserved
-  </footer>
+<footer>
+  © <span id="year"></span> Calliste Ladouas · All rights reserved
+</footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>
+  window.onscroll = function() {
+    let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    let bar = document.getElementById("progress-bar");
+    if (bar) bar.style.width = scrolled + "%";
+  };
+
+  const btn = document.getElementById("theme-toggle");
+  btn.addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+  });
+
+  if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark-mode");
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
-
